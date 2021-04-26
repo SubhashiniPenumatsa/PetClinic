@@ -41,6 +41,33 @@ pipeline {
                 }
             }
      }
+    stage('Robot') {
+            steps {
+                sh 'cd Robotframework-edit/Tests robot --variable BROWSER:headlesschrome -d Robotframework-edit/Tests/Results Robotframework-edit/Tests'
+               
+                
+            }
+            post {
+                always {
+                    script {
+                        step(
+                            [
+                                $class                  :   'RobotPublisher',
+                                outputPath              :   'Robotframework-edit/Tests/Results',
+                                outputFileName          :   '**/output.xml',
+                                reportFileName          :   '**/report.html',
+                                logFileName             :   '**/log.html',
+                                disableArchiveOutput    :   false,
+                                passThreshold           :   100,
+                                unstableThreshold       :   40,
+                                otherFiles              :   "**/*.png,**/*.jpg",
+                            ]
+                        )
+                    }
+                }
+            }
+     }
+    
     stage('newman') {
             steps {
                 sh 'newman run PetClinic.postman_collection.json --environment petsapi.postman_environment.json --reporters junit'
