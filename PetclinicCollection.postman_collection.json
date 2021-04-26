@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "6b8b467a-b799-4a25-9b6f-9c7edaab83d1",
-		"name": "petclinic collection",
+		"name": "PetclinicCollection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
