@@ -41,7 +41,6 @@ pipeline {
                 }
             }
      }
-    
     stage('RobotEdit') {
             steps {
                 sh 'cd Robotframework-edit/Tests robot --variable BROWSER:headlesschrome -d Robotframework-edit/Results Robotframework-edit/Tests'
@@ -67,7 +66,7 @@ pipeline {
                     }
                 }
             }
-     }
+     }   
     stage('newman') {
             steps {
                 sh 'newman run PetClinic.postman_collection.json --environment petsapi.postman_environment.json --reporters junit'
