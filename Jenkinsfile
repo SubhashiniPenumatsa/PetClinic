@@ -55,9 +55,9 @@ pipeline {
                             [
                                 $class                  :   'RobotPublisher',
                                 outputPath              :   'Robotframework-edit/Results',
-                                outputFileName          :   '**/output.xml',
-                                reportFileName          :   '**/report.html',
-                                logFileName             :   '**/log.html',
+                                outputFileName          :   '**/output1.xml',
+                                reportFileName          :   '**/report1.html',
+                                logFileName             :   '**/log1.html',
                                 disableArchiveOutput    :   false,
                                 passThreshold           :   100,
                                 unstableThreshold       :   40,
