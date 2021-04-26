@@ -214,47 +214,6 @@
 					"response": []
 				},
 				{
-					"name": "DeleteOwner",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseURL}}/api/owners/1",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"api",
-								"owners",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "getpets",
 					"event": [
 						{
@@ -266,8 +225,8 @@
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});\r",
 									"pm.test(\"Get pets should have response\", function () {\r",
 									"    pm.expect(jsonData.value).to.not.eq(null);\r",
@@ -320,8 +279,8 @@
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});\r",
 									"pm.test(\"Get booking should have response\", function () {\r",
 									"    pm.expect(jsonData.value).to.not.eq(null);\r",
@@ -383,8 +342,8 @@
 									"pm.test(\"Status should be OK\", () => {\r",
 									"    pm.expect(1).to.eql(1);\r",
 									"});\r",
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});\r",
 									"pm.test(\"Successful POST request\", function () {\r",
 									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
@@ -442,8 +401,8 @@
 									"pm.test(\"Status should be OK\", () => {\r",
 									"    pm.expect(1).to.eql(1);\r",
 									"});\r",
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});\r",
 									"pm.test(\"Successful POST request\", function () {\r",
 									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
@@ -476,38 +435,6 @@
 							"path": [
 								"api",
 								"pets"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "deletePet",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{baseURL}}/api/pets/19",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"api",
-								"pets",
-								"19"
 							]
 						}
 					},
