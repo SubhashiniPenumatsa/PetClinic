@@ -18,6 +18,7 @@ pipeline {
      stage('Robot') {
             steps {
                 sh 'cd spring-petclinic-angular/Tests robot --variable BROWSER:headlesschrome -d spring-petclinic-angular/Tests/Results spring-petclinic-angular/Tests'
+                sh 'cd Robotframework-edit/Tests robot --variable BROWSER:headlesschrome -d Robotframework-edit/Tests'
                 
             }
             post {
