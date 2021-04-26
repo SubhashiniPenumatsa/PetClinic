@@ -67,9 +67,11 @@ pipeline {
                 }
             }
      }   
+   
+   
     stage('newman') {
             steps {
-                sh 'newman run PetClinic.postman_collection.json --environment petsapi.postman_environment.json --reporters junit'
+                sh 'newman run Petclinic_postman_collection.json --environment subha_Petclinic.postman_environment.json--reporters junit'
             }
             post {
                 always {
