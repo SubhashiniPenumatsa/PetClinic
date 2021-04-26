@@ -10,8 +10,7 @@ pipeline {
     } 
     stage('Build Angular') {
       steps {
-        sh "nohup sh "cd spring-petclinic-angular/static-content -- curl https://jcenter.bintray.com/com/athaydes/rawhttp/rawhttp-cli/1.0/rawhttp-cli-1.0-all.jar -o
-          rawhttp.jar -- java -jar ./rawhttp.jar serve . -p 4200" &"
+        sh "nohup sh python -m http.server 4200 &"
         sleep(3)
       }
      
