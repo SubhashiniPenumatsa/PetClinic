@@ -46,7 +46,8 @@ User Can Edit Owners
     Click Button         xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/a
     Move Mouse Down      xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a/span[2]
     Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a/span[2]   Name
-    Click Element and Verify It Load To Expected Page  xpath://html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[2]/td[1]/a  Owner Information
+    Click Button        xpath://html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[2]/td[1]/a  
+    Verify Loaded       Owner Information
     Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/app-owner-detail/div/div/button[2]   First Name
     Set Value           id:firstName   Kitty
     Set Value           id:lastName    Albert
