@@ -1,6 +1,6 @@
 *** Setting ***
 Documentation     PetClinik
-Resource          ..Resources/keyword_editOwnerAndPet.robot
+Resource          ..Robotframework-edit/Resources/keyword_editOwnerAndPet.robot
 Library           SeleniumLibrary
 Test Setup        Begin Web Test
 Test Teardown     End Web Test
