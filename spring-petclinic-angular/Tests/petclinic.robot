@@ -97,16 +97,7 @@ User can add a new Owner and pets
      User Can view Added Owners
      User selects the PetTypes
      End Web Test
-User can edit the owner and the pets
-     [Documentation]           This test edit the owner and pets
-     [Tags]                    Edit the owner and the pet
-      User clicks the Owners
-      User Can view Added Owners
-      User clicks the Existed Owner
-      User can add a pet to the specified owner
-      User can add another pet to the specified owner
-      User can edit the pet to the specified owner
-      End Web Test
+
 
 
 
