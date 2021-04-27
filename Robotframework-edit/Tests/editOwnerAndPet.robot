@@ -1,9 +1,5 @@
 *** Setting ***
 Documentation     PetClinik
-<<<<<<< HEAD
-=======
-Resource          ..Robotframework-edit/Resources/keyword_editOwnerAndPet.robot
->>>>>>> 33015a0043bbcc77f709a5c3455b3ccc208b407e
 Library           SeleniumLibrary
 Test Setup        Begin Web Test
 Test Teardown     End Web Test
