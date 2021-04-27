@@ -43,7 +43,8 @@ User clicks the Owners
     click element                xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a/span[2]
 
 User clicks the Existed Owner
-  click element                    xpath://html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[11]/td[1]/a
+  wait until page contains         Owners
+  click element                    xpath://html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[6]/td[1]/a
   click button                     xpath://html/body/app-root/app-owner-detail/div/div/button[2]
   input text                       xpath://html/body/app-root/app-owner-edit/div/div/form/div[2]/div/input     Murali
   input text                       xpath://html/body/app-root/app-owner-edit/div/div/form/div[3]/div/input     Das
@@ -102,7 +103,6 @@ User can edit the owner and the pets
       User clicks the Owners
       User Can view Added Owners
       User clicks the Existed Owner
-      User on the Owners information page
       User can add a pet to the specified owner
       User can add another pet to the specified owner
       User can edit the pet to the specified owner
