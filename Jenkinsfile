@@ -4,20 +4,20 @@ pipeline {
     
     stage('Build Api') {
       steps {
-        sh "nohup mvn spring-boot:run &"
+        sh 'cd spring-petclinic-rest && nohup mvn spring-boot:run &'
         sleep(20)
       }
     } 
     stage('Build Angular') {
       steps {
-        sh "nohup sh python -m http.server 4200 &"
+        sh 'cd spring-petclinic-angular/static-content && curl https://jcenter.bintray.com/com/athaydes/rawhttp/rawhttp-cli/1.0/rawhttp-cli-1.0-all.jar -o rawhttp.jar && nohup java -jar ./rawhttp.jar serve . -p 4200 &'
         sleep(3)
       }
      
   }
      stage('Robot') {
             steps {
-                sh 'cd spring-petclinic-angular/Tests robot --variable BROWSER:headlesschrome -d spring-petclinic-angular/Tests/Results spring-petclinic-angular/Tests'
+                sh 'robot --variable BROWSER:headlesschrome -d spring-petclinic-angular/Tests/Results spring-petclinic-angular/Tests'
                
                 
             }
@@ -43,7 +43,7 @@ pipeline {
      }
     stage('RobotEdit') {
             steps {
-                sh 'cd Robotframework-edit/Tests robot --variable BROWSER:headlesschrome -d Robotframework-edit/Results Robotframework-edit/Tests'
+                sh 'robot --variable BROWSER:headlesschrome -d Robotframework-edit/Results Robotframework-edit/Tests'
                
                 
             }
