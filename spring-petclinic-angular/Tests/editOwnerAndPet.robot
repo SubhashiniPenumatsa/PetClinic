@@ -46,7 +46,7 @@ User Can Edit Owners
     Click Button         xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/a
     Move Mouse Down      xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a/span[2]
     Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a/span[2]   Name
-    Click Element and Verify It Load To Expected Page  xpath://html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[2]/td[1]/a Owner Information
+    Click Element and Verify It Load To Expected Page  xpath://html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[2]/td[1]/a  Owner Information
     Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/app-owner-detail/div/div/button[2]   First Name
     Set Value           id:firstName   Kitty
     Set Value           id:lastName    Albert
@@ -64,7 +64,7 @@ User Can Edit Pet_1
     Click Button        xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/a
     Move Mouse Down     xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a/span[2]
     Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a/span[2]   Name
-    Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[1]/td[1]/a  Pets and Visits
+    Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[2]/td[1]/a   Pets and Visits
     Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list/table/tr/td[1]/dl/button[1]    Type
     Set Value          id:name    Lagris
     Press Keys         xpath://html/body/app-root/app-pet-edit/div/div/form/div[4]/input   CTRL+a+BACKSPACE
