@@ -46,7 +46,7 @@ User Can Edit Owners
     Click Button         xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/a
     Move Mouse Down      xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a/span[2]
     Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a/span[2]   Name
-    Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[1]/td[1]/a    Owner Information
+    Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[6]/td[1]/a    Owner Information
     Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/app-owner-detail/div/div/button[2]   First Name
     Set Value           id:firstName   Kitty
     Set Value           id:lastName    Albert
@@ -64,15 +64,16 @@ User Can Edit Pet_1
     Click Button        xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/a
     Move Mouse Down     xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a/span[2]
     Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a/span[2]   Name
-    Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[1]/td[1]/a  Pets and Visits
+    Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[8]/td[1]/a  Pets and Visits
     Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list/table/tr/td[1]/dl/button[1]    Type
-    Set Value          id:name    Lagris
+    Set Value          id:name    HelloKitty
+    Sleep              3
     Press Keys         xpath://html/body/app-root/app-pet-edit/div/div/form/div[4]/input   CTRL+a+BACKSPACE
     Set Value          xpath://html/body/app-root/app-pet-edit/div/div/form/div[4]/input   2021/03/12
     Click Button       id:type
     Click Button       xpath://*[@id="type"]/option[2]
     Click Button       xpath://html/body/app-root/app-pet-edit/div/div/form/div[6]/div/button[2]
-    Verify Loaded      Lagris
+    Verify Loaded      HelloKitty
 
 User Can Edit Pet_2
     [Documentation]     User Can Edit the Pet Information_bySelectBirthday
@@ -89,3 +90,4 @@ User Can Edit Pet_2
     Click Button       id:type
     Click Button       xpath://*[@id="type"]/option[1]
     Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/app-pet-edit/div/div/form/div[6]/div/button[2]  Cello
+
