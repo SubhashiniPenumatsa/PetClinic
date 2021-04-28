@@ -19,7 +19,7 @@ pipeline {
     
 			stage('Robot') {
 					steps {
-							sleep(60)
+							sleep(40)
 							sh 'robot --variable BROWSER:headlesschrome -d spring-petclinic-angular/Tests/Results spring-petclinic-angular/Tests/petclinic.robot spring-petclinic-angular/Tests/editOwnerAndPet.robot'
 						   
 							
@@ -47,7 +47,7 @@ pipeline {
 			   
 				stage('newman') {
 						steps {
-						   sleep(60)
+						   sleep(40)
 							sh 'newman run  petclinic.collection.json --environment petclinic.environment.json --reporters junit'
 						}
 						post {
