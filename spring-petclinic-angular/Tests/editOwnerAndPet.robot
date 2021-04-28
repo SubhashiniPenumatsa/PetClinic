@@ -88,4 +88,4 @@ User Can Edit Pet_2
     Click Button       id:mat-datepicker-0
     Click Button       id:type
     Click Button       xpath://*[@id="type"]/option[1]
-    Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list/table/tr/td[1]/dl/dd[1]  Cello
+    Click Button       xpath://html/body/app-root/app-pet-edit/div/div/form/div[6]/div/button[2]
