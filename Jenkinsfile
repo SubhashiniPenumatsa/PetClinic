@@ -11,7 +11,7 @@ pipeline {
 				} 
 			stage('Build Angular') {
 				steps {
-					sh 'cd spring-petclinic-angular/static-content && curl https://jcenter.bintray.com/com/athaydes/rawhttp/rawhttp-                                   cli/1.0/rawhttp-cli-1.0-all.jar -o rawhttp.jar && nohup java -jar ./rawhttp.jar serve . -p 4200 &'
+					sh 'cd spring-petclinic-angular/static-content && curl https://jcenter.bintray.com/com/athaydes/rawhttp/rawhttp-cli/1.0/rawhttp-cli-1.0-all.jar -o rawhttp.jar && nohup java -jar ./rawhttp.jar serve . -p 4200 &'
 					sleep(3)
 				  }
 				 
@@ -20,7 +20,7 @@ pipeline {
 			stage('Robot') {
 					steps {
 							sleep(60)
-							sh 'robot --variable BROWSER:headlesschrome -d spring-petclinic-angular/Tests/Results spring-                                                       petclinic-angular/Tests/petclinic.robot spring-petclinic-angular/Tests/editOwnerAndPet.robot'
+							sh 'robot --variable BROWSER:headlesschrome -d spring-petclinic-angular/Tests/Results spring-petclinic-angular/Tests/petclinic.robot spring-petclinic-angular/Tests/editOwnerAndPet.robot'
 						   
 							
 						}
@@ -30,7 +30,7 @@ pipeline {
 									step(
 										[
 											$class                  :   'RobotPublisher',
-											outputPath              :   'spring-petclinic-a                                                                                                                 angular/Tests/Results',
+											outputPath              :   'spring-petclinic-angular/Tests/Results',
 											outputFileName          :   '**/output.xml',
 											reportFileName          :   '**/report.html',
 											logFileName             :   '**/log.html',
