@@ -56,11 +56,15 @@ pipeline {
 								}
 							}
 					}
-		   stage('Email Notification') {
+		   
+           		}
+		}
+	  stage('Email Notification') {
+		  
+		  steps{
 			   mail bcc: '', body: '''Hi
                            welcome to jenkins''', cc: '', from: '', replyTo: '', subject: 'Jenkins job', to: 'subhashini.penumatsa@iths.se'
-		   }
-           }
+		  }
 	}
  }
 }
