@@ -56,6 +56,10 @@ pipeline {
 								}
 							}
 					}
+		   stage('Email Notification') {
+			   mail bcc: '', body: '''Hi
+                           welcome to jenkins''', cc: '', from: '', replyTo: '', subject: 'Jenkins job', to: 'subhashini.penumatsa@iths.se'
+		   }
            }
 	}
  }
