@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "6b8b467a-b799-4a25-9b6f-9c7edaab83d1",
-		"name": "PetclinicCollection",
+		"_postman_id": "9644e885-01ec-44fd-ac5d-45d2b48bf4db",
+		"name": "petclinic collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -320,9 +320,22 @@
 									"\r",
 									"var jsonData = pm.response.json();\r",
 									"\r",
+									"\r",
+									"var url = pm.environment.get(\"url\") + \"/pets/\" +  pm.globals.get(\"petsID\");\r",
+									"\r",
+									"const getRequest = {\r",
+									"        url: url,\r",
+									"        method: 'GET'\r",
+									"};\r",
+									"\r",
+									"pm.globals.set(\"petsID\", pm.response.json().id);\r",
+									"\r",
+									"\r",
+									"\r",
 									"var status_code = 201;\r",
 									"\r",
-									"\r",
+									"var jsonData = pm.response.json();\r",
+									"var jsonData = pm.response.json();\r",
 									"\r",
 									"pm.test(\"Status code is 201\", () => {\r",
 									"\r",
@@ -461,7 +474,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "    {\r\n        \"id\": 0,\r\n        \"name\": \"nano\",\r\n        \"birthDate\": \"2009/09/07\",\r\n        \"type\": {\r\n            \"id\": 1,\r\n            \"name\": \"cat\"\r\n        },\r\n        \"owner\": {\r\n            \"id\": {{newId}},\r\n            \"firstName\": \"Wassim\",\r\n            \"lastName\": \"El-jomaa\",\r\n            \"address\": \"Bergsgårdsgärdet 12\",\r\n            \"city\": \"Angered\",\r\n            \"telephone\": \"0760776616\"\r\n        },\r\n        \"visits\": []\r\n    }",
+							"raw": "    {\r\n        \"id\":{{petsID}} ,\r\n        \"name\": \"nano\",\r\n        \"birthDate\": \"2009/09/07\",\r\n        \"type\": {\r\n            \"id\": 1,\r\n            \"name\": \"cat\"\r\n        },\r\n        \"owner\": {\r\n            \"id\": {{newId}},\r\n            \"firstName\": \"Wassim\",\r\n            \"lastName\": \"El-jomaa\",\r\n            \"address\": \"Bergsgårdsgärdet 12\",\r\n            \"city\": \"Angered\",\r\n            \"telephone\": \"0760776616\"\r\n        },\r\n        \"visits\": []\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -469,7 +482,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9966/petclinic/api/pets/{{newId}}",
+							"raw": "http://localhost:9966/petclinic/api/pets/{{petsID}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -479,7 +492,7 @@
 								"petclinic",
 								"api",
 								"pets",
-								"{{newId}}"
+								"{{petsID}}"
 							]
 						}
 					},
@@ -588,12 +601,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}pets/{{newId}}",
+							"raw": "{{url}}pets/{{petsID}}",
 							"host": [
 								"{{url}}pets"
 							],
 							"path": [
-								"{{newId}}"
+								"{{petsID}}"
 							]
 						}
 					},
@@ -700,12 +713,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}pets/{{newId}}",
+							"raw": "{{url}}pets/{{petsID}}",
 							"host": [
 								"{{url}}pets"
 							],
 							"path": [
-								"{{newId}}"
+								"{{petsID}}"
 							]
 						}
 					},
