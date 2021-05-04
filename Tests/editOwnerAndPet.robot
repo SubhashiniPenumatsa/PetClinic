@@ -28,7 +28,7 @@ Move Mouse Down
 Click Element and Verify It Load To Expected Page
     [Arguments]                 ${click}   ${text}
     Click Element               ${click}
-    Sleep                       1
+    Wait Until Page Contains    ${text}
     Page should Contain         ${text}
 Set Value
     [Arguments]                 ${click}   ${text}
