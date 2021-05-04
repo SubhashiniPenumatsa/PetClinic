@@ -20,7 +20,7 @@ pipeline {
 			stage('Robot') {
 					steps {
 							sleep(60)
-							sh 'robot --variable BROWSER:headlesschrome -d spring-petclinic-angular/Tests/Results spring-petclinic-angular/Tests/Addpetclinic.robot spring-petclinic-angular/Tests/editOwnerAndPet.robot'
+							sh 'robot --variable BROWSER:headlesschrome -d spring-petclinic-angular/Tests/Results Tests/Addpetclinic.robot Tests/editOwnerAndPet.robot'
 						   
 							
 						}
@@ -30,7 +30,7 @@ pipeline {
 									step(
 										[
 											$class                  :   'RobotPublisher',
-											outputPath              :   'spring-petclinic-angular/Tests/Results',
+											outputPath              :   'Tests/Results',
 											outputFileName          :   '**/output.xml',
 											reportFileName          :   '**/report.html',
 											logFileName             :   '**/log.html',
