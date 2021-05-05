@@ -59,6 +59,13 @@ pipeline {
 		   
            		}
 		}
-	  
+	  stage('Email Notification') {
+		  
+		  steps{
+			   emailext body: '''Hi 
+                   welcome to jenkins''', subject: 'Jenkins job', to: ' jenkins.iths.mailer@gmail.com'
+		  }
+	}
+   
  }
 }
