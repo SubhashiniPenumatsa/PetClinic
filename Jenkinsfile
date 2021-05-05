@@ -20,7 +20,7 @@ pipeline {
 			stage('Robot') {
 					steps {
 							sleep(60)
-							sh 'robot --variable BROWSER:headlesschrome -d Tests/Results Tests/Addpetclinic.robot Tests/editOwnerAndPet.robot'
+							sh 'robot --variable BROWSER:headlesschrome -d Tests/Results Tests'
 						   
 							
 						}
@@ -60,7 +60,7 @@ pipeline {
 			   stage('Email') {
 
 					  steps{
-						  mail bcc: '', body: 'hello', cc: '', from: '', replyTo: '', subject: 'hello', to: 'subhashini.penumatsa@iths.se'
+						  mail bcc: '', body: 'hello', cc: '', from: ' jenkins.iths.mailer@gmail.com', replyTo: '', subject: 'hello', to: 'subha9@gmail.com'
 					  }
 			   }
 	
