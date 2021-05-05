@@ -20,7 +20,7 @@ pipeline {
 			stage('Robot') {
 					steps {
 							sleep(60)
-							sh 'robot --variable BROWSER:headlesschrome -d spring-petclinic-angular/Tests/Results Tests/Addpetclinic.robot Tests/editOwnerAndPet.robot'
+							sh 'robot --variable BROWSER:headlesschrome -d Tests/Results Tests/Addpetclinic.robot Tests/editOwnerAndPet.robot'
 						   
 							
 						}
