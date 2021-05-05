@@ -65,6 +65,10 @@ pipeline {
 			  mail bcc: '', body: 'hello', cc: '', from: '', replyTo: '', subject: 'hello', to: 'subhashini.penumatsa@iths.se'
 		  }
 	}
-   
+	post {  
+         always {  
+             	  mail bcc: '', body: 'hello', cc: '', from: '', replyTo: '', subject: 'hello', to: 'subhashini.penumatsa@iths.se'
+        	 }  
+	}
  }
 }
