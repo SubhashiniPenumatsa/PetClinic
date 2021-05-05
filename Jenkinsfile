@@ -62,8 +62,10 @@ pipeline {
 	  stage('Email Notification') {
 		  
 		  steps{
-			   emailext body: '''Hi 
-                   welcome to jenkins''', subject: 'Jenkins job', to: ' jenkins.iths.mailer@gmail.com'
+			  mail bcc: '', body: '''Hi 
+                               welcome to Jenkins
+                          Thanks
+                             subhashini''', cc: '', from: '', replyTo: '', subject: 'Jenkins job', to: 'jenkins.iths.mailer@gmail.com'
 		  }
 	}
    
