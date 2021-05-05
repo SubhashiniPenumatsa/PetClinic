@@ -57,15 +57,14 @@ pipeline {
 							}
 					}
 		   		
-			   stage('Email') {
-
-					  steps{
-						  mail bcc: '', body: 'hello', cc: '', from: ' jenkins.iths.mailer@gmail.com', replyTo: '', subject: 'hello', to: 'subha9@gmail.com'
-					  }
-			   }
-	
+			  
            		}
 		}
-	  
+	  stage('Email') {
+				steps {
+					emailext attachLog: true, body: 'Hello Jenkins', subject: 'JenkinsJob', to: 'jenkins.iths.mailer@gmail.com'
+				  }
+				 
+			  }
  }
 }
