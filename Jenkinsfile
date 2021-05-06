@@ -62,7 +62,7 @@ pipeline {
 		}
 	  stage('Email') {
 				steps {
-					emailext attachLog: true, body: 'Hello Jenkins', subject: 'JenkinsJob', to: 'jenkins.iths.mailer@gmail.com'
+					emailext attachLog: true, body: 'Hello Jenkins', subject: 'JenkinsJob', to: 'subha9@gmail.com'
 				  }
 				 
 			  }
