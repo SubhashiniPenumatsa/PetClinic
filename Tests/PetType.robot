@@ -49,4 +49,4 @@ User can delete pet type
     Click On Pet Types Button
     click button                xpath://*[@id="pettypes"]/tbody/tr[7]/td[2]/button[2]
     page should contain button  xpath://html/body/app-root/app-pettype-list/div/div/div/button[2]
-    page should not contain element        id=6     Tiger
+    page should not contain element        id=6    Tiger
