@@ -40,14 +40,14 @@ User test if home button exist on Specialties page
     click element               xpath://html/body/app-root/div[1]/nav/div/ul/li[5]/a
     page should contain         Specialties
     Check and click home button
-User test if home button exist on Edit Specialties page
+#User test if home button exist on Edit Specialties page
     [Documentation]         Check if Home button exist on Edit Specialties page
     [Tags]                  PB-87
     click element               xpath://html/body/app-root/div[1]/nav/div/ul/li[5]/a
     click element               xpath://*[@id="specialties"]/tbody/tr[1]/td[2]/button[1]
     page should contain         Edit Specialty
     Check and click home button
-User test if home button exist on Owners add page
+#User test if home button exist on Owners add page
     [Documentation]         Check if Home button exist on Owners add page
     [Tags]                  PB-87
     click element               xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/a
@@ -55,12 +55,12 @@ User test if home button exist on Owners add page
     wait until page contains    New Owner
     page should contain         New Owner
     Check and click home button
-User test if home button exist on Owners all page
+#User test if home button exist on Owners all page
     [Documentation]         Check if Home button exist on Owners all page
     [Tags]                  PB-87
     Owner Page
     Check and click home button
-User test if home button exist on Veterinarians add page
+#User test if home button exist on Veterinarians add page
     [Documentation]         Check if Home button exist on Veterinarians page
     [Tags]                  PB-87
     click element               xpath://html/body/app-root/div[1]/nav/div/ul/li[3]/a
@@ -74,27 +74,27 @@ User test if home button exist on Veterinarians all page
     click element               xpath://html/body/app-root/div[1]/nav/div/ul/li[3]/ul/li[1]/a
     page should contain         Veterinarians
     Check and click home button
-User test if home button exist on Edit Veterinarian page
+#User test if home button exist on Edit Veterinarian page
     [Documentation]         Check if Home button exist on Edit Veterinarian page
     [Tags]                  PB-87
     click element               xpath://html/body/app-root/div[1]/nav/div/ul/li[3]/a
     click element               xpath://html/body/app-root/div[1]/nav/div/ul/li[3]/ul/li[1]/a
     click element               xpath://*[@id="vets"]/tbody/tr[1]/td[3]/button[1]
     Check and click home button
-User test if home button exist on Owner Information
+#User test if home button exist on Owner Information
     [Documentation]         Check if Home button exist on Owner information page
     [Tags]                  PB-87
     Owner Page
     Owner George Franklin
     Check and click home button
-User test if home button exist on Edit Owner
+#User test if home button exist on Edit Owner
     [Documentation]         Check if Home button exist on Edit Owner
     [Tags]                  PB-87
     Owner Page
     Owner George Franklin
     click button           Edit Owner
     Check and click home button
-User test if home button exist on Owner Add New Pet
+#User test if home button exist on Owner Add New Pet
     [Documentation]         Check if Home button exist on Owner Add New Pet
     [Tags]                  PB-87
     Owner Page
@@ -102,7 +102,7 @@ User test if home button exist on Owner Add New Pet
     click button           Add New Pet
     page should contain     Add Pet
     Check and click home button
-User test if home button exist on Edit Pet page
+#User test if home button exist on Edit Pet page
     [Documentation]         Check if Home button exist on Edit Pet page
     [Tags]                  PB-87
     Owner Page
@@ -110,7 +110,7 @@ User test if home button exist on Edit Pet page
     click element           xpath://html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list[1]/table/tr/td[1]/dl/button[1]
     page should contain      Pet
     Check and click home button
-User test if home button exist on Add Visits for Pet page
+#User test if home button exist on Add Visits for Pet page
     [Documentation]         Check if Home button exist on Add Visits for Pet page
     [Tags]                  PB-87
     Owner Page
