@@ -28,10 +28,10 @@ End Web Test
   close all browsers
 
 *** Test Cases ***
-User can add new specialties
-     set selenium speed  0.25
-     [Documentation]  This test adds new specialties
-     [Tags]           Adds new specialties
-     User clicks the Specialties
-     User clicks the Add Specialties
+#User can add new specialties
+     #set selenium speed  0.25
+     #[Documentation]  This test adds new specialties
+     #[Tags]           Adds new specialties
+     #User clicks the Specialties
+     #User clicks the Add Specialties
 
