@@ -24,7 +24,7 @@ User clicks the Add Specialties
     Input Text                          id=name  paediatrics
     click button                        Save
     Wait until page contains            Home
-    page should contain element         id=4     paediatrics
+    page should contain element         id=specialties     paediatrics
 User delete the specialty
     Click Element                       xpath://*[@id="specialties"]/tbody/tr[6]/td[2]/button[2]
     Page should not contain             paediatrics
