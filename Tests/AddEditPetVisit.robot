@@ -28,6 +28,8 @@ Add Visit
          Input text                     xpath://*[@id="visit"]/div[1]/div[1]/div/input     2021/05/04
          Input text                     xpath://*[@id="description"]     Soft Wound
          click button                   xpath://*[@id="visit"]/div[2]/div/button[2]
+         sleep                          8
+         Page should Contain Element    xpath://html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list/table/tr/td[2]/app-visit-list/table   Soft Wound
 
 Edit Visit
 
@@ -39,6 +41,8 @@ Edit Visit
          Input text                     xpath://*[@id="visit"]/div[1]/div[1]/div/input  2021/05/20
          Input text                     xpath://*[@id="description"]     Soft Wound DOUBLE
          click button                   xpath://*[@id="visit"]/div[2]/div/button[2]
+         sleep                          8
+         Page should Contain Element    xpath://html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list/table/tr/td[2]/app-visit-list/table   Soft Wound DOUBLE
 
 
 End Web Test
