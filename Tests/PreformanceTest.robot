@@ -86,7 +86,7 @@ User can remove 1 of 2 pets of Mattias
     page should not contain element     Charlie
 User can Change lastname of Mattias
     [Documentation]         Change Lastname Of Mattias
-    [Tags]                  PB67
+    [Tags]                  PB-67
     verify page loaded
     user selects owners
     User Load Owner Mattias
