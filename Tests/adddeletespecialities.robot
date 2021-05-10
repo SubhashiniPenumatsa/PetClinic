@@ -26,7 +26,7 @@ User clicks the Add Specialties
     Wait until page contains            Home
     page should contain element         id=specialties     paediatrics
 User delete the specialty
-    Click Element                       xpath://*[@id="specialties"]/tbody/tr[6]/td[2]/button[2]
+    Click Element                       xpath://*[@id="specialties"]/tbody/tr[4]/td[2]/button[2]
     Page should not contain             paediatrics
 End Web Test
   close all browsers
