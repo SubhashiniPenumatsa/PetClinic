@@ -5,12 +5,15 @@ Library                         SeleniumLibrary
 Test Setup                      Begin Web Test
 Test Teardown                   End Web Test
 
+*** Variables ***
+${BROWSER}      chrome
+${URL}          http://localhost:4200/
+
 *** Keywords ***
 Begin Web Test
-
-         Open browser                   about:blank  chrome
-         #Maximize Browser Window
-         Go to                          http://localhost:4200/
+    Open Browser               about:black     ${BROWSER}
+    Maximize Browser Window
+    Go to                       ${URL}
 
 Verify Page Loaded
          Page should contain            Welcome to Petclinic     #  Confirmation that desired website is accessed.
