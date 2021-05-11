@@ -2,7 +2,7 @@
  
 
 Petclinic website to maintain the Pets , Pet Owners information, Pet treatments information and Pets Visit Information.
-Pet clinic Project Repository contains of Angular And Rest project. Angualr Project is to run the Front end of the application and Rest project contains the backed service programs  can be execute using Rest API. Test folder contains the Robot framework test suit to execute the UI test cases. REST Api test suit is available in the Petclinic folder, contains the test cases to execute backend test cases using REST Api.
+Pet clinic Project Repository contains of Angular And Rest project. Angular Project is to run the Front end of the application and Rest project contains the backend service programs  can be execute using Rest API. Test folder contains the Robot framework test suite to execute the UI test cases. REST Api test suite is available in the Petclinic folder, contains the test cases to execute backend test cases using REST Api.
 
 Jenkinsfile under Petclinic contains the script with stages of execution script. In this file for each Stage is described with name of the stage and each stage contains the steps. Inside steps will metnion the script to be exucted in the step.
 For Unix operating system step to be starts with SH command and For Windows Operating system step to be start with BAT command. Below are the details of each stage in the Jenkins file.
@@ -16,7 +16,7 @@ For Unix operating system step to be starts with SH command and For Windows Oper
 	We have to use the command "robot --variable BROWSER:headlesschrome -d Tests/Results Tests" to run with Chrome browswer. Robot Test results will be published in folder Tests/Results.
 4) Stage - newman to run the Backend test cases using rest API.
 	We have to use the command "newman run  petclinic.collection.json --environment petclinic.environment.json --reporters junit" to execute the Rest API test cases. 
-5) Stage - Post is to post the test results reports of the test cases via email, even on success an failuer.
+5) Stage - Post is to post the test results reports of the test cases via email, even on success an failure.
 	
 	To Run the Petclinic with Jenkins pipeline, in Pipeline - Defnition section under SCM select the reposiotory GIT/SVN,
 under Repositories - Repository URL, Provide the GIT/SVN URL where the sources are exists.
