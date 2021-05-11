@@ -1,0 +1,1113 @@
+{
+	"info": {
+		"_postman_id": "967dce93-9b5a-4a71-bf68-f27998fdb79e",
+		"name": "petclinic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Get Auth Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"secondAdmin\");\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"password\");\r",
+									"});\r",
+									"pm.test(\"Check Booking\" , function () {\r",
+									"    pm.expect (jsonData.owners).to.not.equal(null);\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"secondAdmin\",\r\n    \"password\": \"password\",\r\n    \"enabled\": true,\r\n    \"roles\": [\r\n    \t{ \"name\" : \"OWNER_ADMIN\" }\r\n\t]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}users",
+							"host": [
+								"{{url}}users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pet Type Rest Controller",
+			"item": [
+				{
+					"name": "Get all pet types",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Check the body is not empty\" , function () {\r",
+									"    pm.expect (jsonData.pettypes).to.not.equal(null);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches pettypes names\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"cat\");\r",
+									"     pm.expect(pm.response.text()).to.include(\"dog\");\r",
+									"      pm.expect(pm.response.text()).to.include(\"lizard\");\r",
+									"       pm.expect(pm.response.text()).to.include(\"snake\");\r",
+									"     pm.expect(pm.response.text()).to.include(\"bird\");\r",
+									"      pm.expect(pm.response.text()).to.include(\"hamster\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}pettypes",
+							"host": [
+								"{{url}}pettypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add pet types",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"\r",
+									"var url = pm.environment.get(\"url\") + \"/pettypes/\" +  pm.globals.get(\"petsTypeID\");\r",
+									"\r",
+									"const getRequest = {\r",
+									"        url: url,\r",
+									"        method: 'GET'\r",
+									"};\r",
+									"\r",
+									"pm.globals.set(\"petsTypeID\", pm.response.json().id);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Check the body is not empty\" , function () {\r",
+									"    pm.expect (jsonData.pettypes).to.not.equal(null);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Status code name has string\", () => {\r",
+									"  pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"pm.test(\"if the new pettypes name is lion\", () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson.name).to.eql(\"lion\");\r",
+									"  \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n       \r\n        \"name\": \"lion\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}pettypes",
+							"host": [
+								"{{url}}pettypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get pettype with id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.globals.set(\"petsTypeID\", pm.response.json().id);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"\r",
+									"pm.test(\"Check the body is not empty\" , function () {\r",
+									"    pm.expect (jsonData.pettypes).to.not.equal(null);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches pettypes names\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"lion\");\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}pettypes/{{petsTypeID}}",
+							"host": [
+								"{{url}}pettypes"
+							],
+							"path": [
+								"{{petsTypeID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update pets type",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n       \"id\": {{petsTypeID}},\r\n        \"name\": \"Tiger\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}pettypes/{{petsTypeID}}",
+							"host": [
+								"{{url}}pettypes"
+							],
+							"path": [
+								"{{petsTypeID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get update pets type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Check the body is not empty\" , function () {\r",
+									"    pm.expect (jsonData.pettypes).to.not.equal(null);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches pettypes names\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Tiger\");\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}pettypes/{{petsTypeID}}",
+							"host": [
+								"{{url}}pettypes"
+							],
+							"path": [
+								"{{petsTypeID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete pet types with ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}pettypes/{{petsTypeID}}",
+							"host": [
+								"{{url}}pettypes"
+							],
+							"path": [
+								"{{petsTypeID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Visits",
+			"item": [
+				{
+					"name": "GetAllvisits",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Jean\");\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}visits",
+							"host": [
+								"{{url}}visits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Addvisits",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var status_code = 201;\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"\r",
+									"var url = pm.environment.get(\"url\") + \"/visits/\" +  pm.globals.get(\"visitId\");\r",
+									"\r",
+									"const getRequest = {\r",
+									"        url: url,\r",
+									"        method: 'GET'\r",
+									"};\r",
+									"\r",
+									"pm.globals.set(\"visitId\", pm.response.json().id);\r",
+									"\r",
+									"\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Check the body is not empty\" , function () {\r",
+									"    pm.expect (jsonData.owners).to.not.equal(null);\r",
+									"});\r",
+									"pm.test(\"Test owner Firstname is created\", function () {\r",
+									"    pm.expect(jsonData.pet.owner.firstName).to.include(\"Jean\");\r",
+									"});\r",
+									"pm.test(\"Test owner lastName is created \", function () {\r",
+									"    pm.expect(jsonData.pet.owner.lastName).to.include(\"Coleman\");\r",
+									"});\r",
+									"pm.test(\"Test owner address is created \", function () {\r",
+									"    pm.expect(jsonData.pet.owner.address).to.include(\"105 N. Lake St.\");\r",
+									"});\r",
+									"pm.test(\"Test owner telephone is created\", function () {\r",
+									"    pm.expect(jsonData.pet.owner.telephone).to.include(\"6085552654\");\r",
+									"});\r",
+									"pm.test(\"Test owner city is created \", function () {\r",
+									"    pm.expect(jsonData.pet.owner.city).to.include(\"Monona\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 0,\r\n    \"date\": \"2021/05/20\",\r\n    \"description\": \"rabies shot\",\r\n   \"pet\": {\r\n            \"id\": 8,\r\n            \"name\": \"Max\",\r\n            \"birthDate\": \"2012/09/04\",\r\n            \"type\": {\r\n                \"id\": 1,\r\n                \"name\": \"cat\"\r\n        },\r\n        \"owner\": {\r\n                \"id\": 6,\r\n                \"firstName\": \"Jean\",\r\n                \"lastName\": \"Coleman\",\r\n                \"address\": \"105 N. Lake St.\",\r\n                \"city\": \"Monona\",\r\n                \"telephone\": \"6085552654\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}visits",
+							"host": [
+								"{{url}}visits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Getvisitbyid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"pm.test(\"Check the body is not empty\" , function () {\r",
+									"    pm.expect (jsonData.owners).to.not.equal(null);\r",
+									"});\r",
+									"pm.test(\"Test petname \", function () {\r",
+									"    pm.expect(jsonData.pet.name).to.include(\"Max\");\r",
+									"});\r",
+									"pm.test(\"Test birthdate of pet \", function () {\r",
+									"    pm.expect(jsonData.pet.birthDate).to.include(\"2012/09/04\");\r",
+									"});\r",
+									"pm.test(\"Test pet type \", function () {\r",
+									"    pm.expect(jsonData.pet.type.name).to.include(\"cat\");\r",
+									"});pm.test(\"Test owner Firstname is created\", function () {\r",
+									"    pm.expect(jsonData.pet.owner.firstName).to.include(\"Jean\");\r",
+									"});\r",
+									"pm.test(\"Test owner lastName is created \", function () {\r",
+									"    pm.expect(jsonData.pet.owner.lastName).to.include(\"Coleman\");\r",
+									"});\r",
+									"pm.test(\"Test owner address is created \", function () {\r",
+									"    pm.expect(jsonData.pet.owner.address).to.include(\"105 N. Lake St.\");\r",
+									"});\r",
+									"pm.test(\"Test owner telephone is created\", function () {\r",
+									"    pm.expect(jsonData.pet.owner.telephone).to.include(\"6085552654\");\r",
+									"});\r",
+									"pm.test(\"Test owner city is created \", function () {\r",
+									"    pm.expect(jsonData.pet.owner.city).to.include(\"Monona\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}visits/{{visitId}}",
+							"host": [
+								"{{url}}visits"
+							],
+							"path": [
+								"{{visitId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updatevisit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var status_code = 204;\r",
+									"\r",
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": {{visitId}},\r\n    \"date\": \"2021/05/20\",\r\n    \"description\": \"rabies shot\",\r\n   \"pet\": {\r\n            \"id\": 8,\r\n            \"name\": \"Max\",\r\n            \"birthDate\": \"2012/09/04\",\r\n            \"type\": {\r\n                \"id\": 1,\r\n                \"name\": \"cat\"\r\n        },\r\n        \"owner\": {\r\n                \"id\": 6,\r\n                \"firstName\": \"Jean\",\r\n                \"lastName\": \"Coleman\",\r\n                \"address\": \"105 N. Lake St.\",\r\n                \"city\": \"Monona\",\r\n                \"telephone\": \"6085552654\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}visits/{{visitId}}",
+							"host": [
+								"{{url}}visits"
+							],
+							"path": [
+								"{{visitId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUpdatedvisit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": {{visitId}},\r\n    \"date\": \"2021/05/20\",\r\n    \"description\": \"rabies shot\",\r\n    \"pet\": {\r\n        \"id\": 15,\r\n        \"name\": \"Baby doggy\",\r\n        \"birthDate\": \"2021/05/04\",\r\n        \"type\": {\r\n            \"id\": 2,\r\n            \"name\": \"Dog\"\r\n        },\r\n        \"owner\": {\r\n            \"id\": 11,\r\n            \"firstName\": \"Shilpa\",\r\n            \"lastName\": \"Srinivas\",\r\n            \"address\": \"kobbegården 3\",\r\n            \"city\": \"gothenburg\",\r\n            \"telephone\": \"0704445765\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}visits/{{visitId}}",
+							"host": [
+								"{{url}}visits"
+							],
+							"path": [
+								"{{visitId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletevisit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var status_code = 204;\r",
+									"\r",
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"date\": \"2021/05/10\",\r\n    \"description\": \"rabies shot\",\r\n    \"pet\": {\r\n        \"id\": 14,\r\n        \"name\": \"Baby\",\r\n        \"birthDate\": \"2021/05/04\",\r\n        \"type\": {\r\n            \"id\": 7,\r\n            \"name\": \"Rabbit\"\r\n        },\r\n        \"owner\": {\r\n            \"id\": 11,\r\n            \"firstName\": \"Shilpa\",\r\n            \"lastName\": \"Srinivas\",\r\n            \"address\": \"kobbegården 3\",\r\n            \"city\": \"gothenburg\",\r\n            \"telephone\": \"0704445765\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}visits/{{visitId}}",
+							"host": [
+								"{{url}}visits"
+							],
+							"path": [
+								"{{visitId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Veterinarians rest controller",
+			"item": [
+				{
+					"name": "Get all Veterinarians",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Check the body is not empty\" , function () {\r",
+									"    pm.expect (jsonData.pettypes).to.not.equal(null);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}vets",
+							"host": [
+								"{{url}}vets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add Veterinarians",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"\r",
+									"var url = pm.environment.get(\"url\") + \"/vets/\" +  pm.globals.get(\"vetsID\");\r",
+									"\r",
+									"const getRequest = {\r",
+									"        url: url,\r",
+									"        method: 'GET'\r",
+									"};\r",
+									"\r",
+									"pm.globals.set(\"vetsID\", pm.response.json().id);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Check the body is not empty\" , function () {\r",
+									"    pm.expect (jsonData.vets).to.not.equal(null);\r",
+									"});\r",
+									"pm.test(\"Test Veterinarian Firstname is created\", function () {\r",
+									"    pm.expect(jsonData.firstName).to.include(\"Likka\");\r",
+									"});\r",
+									"pm.test(\"Test Veterinarian lastName is created \", function () {\r",
+									"    pm.expect(jsonData.lastName).to.include(\"Johar\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \r\n        \"firstName\": \"Likka\",\r\n        \"lastName\": \"Johar\",\r\n        \"specialties\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}vets",
+							"host": [
+								"{{url}}vets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Veterinarians with ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Check the body is not empty\" , function () {\r",
+									"    pm.expect (jsonData.vets).to.not.equal(null);\r",
+									"});\r",
+									"pm.test(\"Test Veterinarian Firstname is created\", function () {\r",
+									"    pm.expect(jsonData.firstName).to.include(\"Likka\");\r",
+									"});\r",
+									"pm.test(\"Test Veterinarian lastName is created \", function () {\r",
+									"    pm.expect(jsonData.lastName).to.include(\"Johar\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 1,\r\n        \"firstName\": \"Likka\",\r\n        \"lastName\": \"Johar\",\r\n        \"specialties\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}vets/{{vetsID}}",
+							"host": [
+								"{{url}}vets"
+							],
+							"path": [
+								"{{vetsID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Uppdate Veterinarians with ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 1,\r\n        \"firstName\": \"Likka\",\r\n        \"lastName\": \"noor\",\r\n        \"specialties\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}vets/{{vetsID}}",
+							"host": [
+								"{{url}}vets"
+							],
+							"path": [
+								"{{vetsID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get uppdate Veterinarians with ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Check the body is not empty\" , function () {\r",
+									"    pm.expect (jsonData.vets).to.not.equal(null);\r",
+									"});\r",
+									"pm.test(\"Test Veterinarian Firstname is created\", function () {\r",
+									"    pm.expect(jsonData.firstName).to.include(\"Likka\");\r",
+									"});\r",
+									"pm.test(\"Test Veterinarian lastName is created \", function () {\r",
+									"    pm.expect(jsonData.lastName).to.include(\"noor\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 1,\r\n        \"firstName\": \"Likka\",\r\n        \"lastName\": \"noor\",\r\n        \"specialties\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}vets/{{vetsID}}",
+							"host": [
+								"{{url}}vets"
+							],
+							"path": [
+								"{{vetsID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete uppdate Veterinarians with ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 1,\r\n        \"firstName\": \"Likka\",\r\n        \"lastName\": \"noor\",\r\n        \"specialties\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}vets/{{vetsID}}",
+							"host": [
+								"{{url}}vets"
+							],
+							"path": [
+								"{{vetsID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Specialties",
+			"item": [
+				{
+					"name": "GetSpecialties",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}specialties",
+							"host": [
+								"{{url}}specialties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddSpecialty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var status_code = 201;\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", function () {pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.globals.set(\"specialtyId\", pm.response.json().id);\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(status_code);\r",
+									"});\r",
+									"pm.test(\"Check the body is not empty\" , function () {\r",
+									"    pm.expect (jsonData.owners).to.not.equal(null);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check specialtyId is not null\" , function () {\r",
+									"    pm.expect(pm.globals.get(\"specialtyId\")).to.not.equal(null);\r",
+									"});\r",
+									"\r",
+									"console.log(pm.globals.get(\"specialtyId\"));\r",
+									"\r",
+									"pm.test(\"Test specialty name is created\", function () {\r",
+									"    pm.expect(jsonData.name).to.include(\"Castration\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Castration\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}specialties",
+							"host": [
+								"{{url}}specialties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update specialty by Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{specialtyId}},\r\n  \"name\": \"Others\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}specialties/{{specialtyId}}",
+							"host": [
+								"{{url}}specialties"
+							],
+							"path": [
+								"{{specialtyId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get updated specialty by Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Test name \", function () {\r",
+									"    pm.expect(jsonData.name).to.include(\"Others\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}specialties/{{specialtyId}}",
+							"host": [
+								"{{url}}specialties"
+							],
+							"path": [
+								"{{specialtyId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete specialty by Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}specialties/{{specialtyId}}",
+							"host": [
+								"{{url}}specialties"
+							],
+							"path": [
+								"{{specialtyId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
