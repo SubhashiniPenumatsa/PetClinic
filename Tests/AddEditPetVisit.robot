@@ -56,7 +56,7 @@ End Web Test
 User add a pet type
     [Documentation]                     Add A Visit
     [Tags]                              PB-75
-    set selenium speed                  1
+    #set selenium speed                  1
     Verify Page Loaded
     Click On Owners Button
     Add Visit
@@ -65,7 +65,7 @@ User add a pet type
 User edit a pet type
     [Documentation]                     Add A Visit
     [Tags]                              PB-75
-    set selenium speed                  1
+    #set selenium speed                  1
     Verify Page Loaded
     Click On Owners Button
     Edit Visit
