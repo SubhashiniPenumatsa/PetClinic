@@ -1,8 +1,8 @@
          Structure of the Github Repositary
  
 
-Petclinic website to maintain the Pets , Pet Owners information, Pet treatments information and Pets Visit Information.
-Pet clinic Project Repository contains of Angular And Rest project. Angular Project is to run the Front end of the application and Rest project contains the backend service programs  can be execute using Rest API. Test folder contains the Robot framework test suite to execute the UI test cases. REST Api test suite is available in the Petclinic folder, contains the test cases to execute backend test cases using REST Api.
+Petclinic website is to maintain the Pets , Pet Owners information, Pet treatments information and Pets Visit Information.
+Pet clinic Project Repository contains  Angular And Rest project. Angular Project is to run the Front end of the application and Rest project contains the backend service programs  can be execute using Rest API. Test folder contains the Robot framework test suite to execute the UI test cases. REST Api test suite is available in the Petclinic folder, contains the test cases to execute backend test cases using REST Api.
 
 Jenkinsfile under Petclinic contains the script with stages of execution script. In this file for each Stage is described with name of the stage and each stage contains the steps. Inside steps will metnion the script to be exucted in the step.
 For Unix operating system step to be starts with SH command and For Windows Operating system step to be start with BAT command. Below are the details of each stage in the Jenkins file.
