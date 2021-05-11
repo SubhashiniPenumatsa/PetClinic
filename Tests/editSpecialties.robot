@@ -33,7 +33,7 @@ End Web Test
 *** Test Cases ***
 User Can Edit Specialties
     [Documentation]     User Can Edit Specialties
-    [Tags]              EditSpecialties
+    [Tags]              EditSpecialties (PB-57)
     Go to Web Page
     Click Element and Verify It Load To Expected Page   xpath://html/body/app-root/div[1]/nav/div/ul/li[5]/a/span[2]    Specialties
     Click Element and Verify It Load To Expected Page   xpath://*[@id="specialties"]/tbody/tr[1]/td[2]/button[1]    Edit Specialty
