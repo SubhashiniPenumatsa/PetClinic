@@ -768,7 +768,7 @@
 			"name": "Pet Type Rest Controller",
 			"item": [
 				{
-					"name": "Get all pet types",
+					"name": "Get all pet types( PB-71)",
 					"event": [
 						{
 							"listen": "test",
@@ -810,7 +810,7 @@
 					"response": []
 				},
 				{
-					"name": "Add pet types",
+					"name": "Add pet types PB(71)",
 					"event": [
 						{
 							"listen": "test",
@@ -874,7 +874,7 @@
 					"response": []
 				},
 				{
-					"name": "Get pettype with id",
+					"name": "Get pettype with id PB(71)",
 					"event": [
 						{
 							"listen": "test",
@@ -918,7 +918,7 @@
 					"response": []
 				},
 				{
-					"name": "update pets type",
+					"name": "update pets type (PB-69)",
 					"event": [
 						{
 							"listen": "test",
@@ -957,7 +957,7 @@
 					"response": []
 				},
 				{
-					"name": "Get update pets type",
+					"name": "Get update pets type (PB-69)",
 					"event": [
 						{
 							"listen": "test",
@@ -998,7 +998,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete pet types with ID",
+					"name": "Delete pet types with ID (PB-69)",
 					"event": [
 						{
 							"listen": "test",
@@ -1034,7 +1034,7 @@
 			"name": "Visits",
 			"item": [
 				{
-					"name": "GetAllvisits",
+					"name": "GetAllvisits (PB-74)",
 					"event": [
 						{
 							"listen": "test",
@@ -1070,7 +1070,7 @@
 					"response": []
 				},
 				{
-					"name": "Addvisits",
+					"name": "Addvisits (PB-74)",
 					"event": [
 						{
 							"listen": "test",
@@ -1146,7 +1146,7 @@
 					"response": []
 				},
 				{
-					"name": "Getvisitbyid",
+					"name": "Getvisitbyid (PB-74)",
 					"event": [
 						{
 							"listen": "test",
@@ -1207,7 +1207,7 @@
 					"response": []
 				},
 				{
-					"name": "Updatevisit",
+					"name": "Updatevisit (PB-74)",
 					"event": [
 						{
 							"listen": "test",
@@ -1253,7 +1253,7 @@
 					"response": []
 				},
 				{
-					"name": "GetUpdatedvisit",
+					"name": "GetUpdatedvisit (PB-74)",
 					"event": [
 						{
 							"listen": "test",
@@ -1300,7 +1300,7 @@
 					"response": []
 				},
 				{
-					"name": "Deletevisit",
+					"name": "Deletevisit (PB-74)",
 					"event": [
 						{
 							"listen": "test",
@@ -1350,7 +1350,7 @@
 			"name": "Veterinarians rest controller",
 			"item": [
 				{
-					"name": "Get all Veterinarians",
+					"name": "Get all Veterinarians (PB-65)",
 					"event": [
 						{
 							"listen": "test",
@@ -1384,7 +1384,7 @@
 					"response": []
 				},
 				{
-					"name": "add Veterinarians",
+					"name": "Add Veterinarians (PB-65)",
 					"event": [
 						{
 							"listen": "test",
@@ -1444,7 +1444,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Veterinarians with ID",
+					"name": "Get Veterinarians with ID (PB-65)",
 					"event": [
 						{
 							"listen": "test",
@@ -1498,7 +1498,7 @@
 					"response": []
 				},
 				{
-					"name": "Uppdate Veterinarians with ID",
+					"name": "Update Veterinarians with ID (PB-63)",
 					"event": [
 						{
 							"listen": "test",
@@ -1537,7 +1537,7 @@
 					"response": []
 				},
 				{
-					"name": "Get uppdate Veterinarians with ID",
+					"name": "Get update Veterinarians with ID (PB-63)",
 					"event": [
 						{
 							"listen": "test",
@@ -1591,7 +1591,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete uppdate Veterinarians with ID",
+					"name": "Delete  Veterinarians with ID (PB-61)",
 					"event": [
 						{
 							"listen": "test",
@@ -1635,7 +1635,7 @@
 			"name": "Specialties",
 			"item": [
 				{
-					"name": "GetSpecialties",
+					"name": "GetSpecialties (PB-59)",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1649,7 +1649,7 @@
 					"response": []
 				},
 				{
-					"name": "AddSpecialty",
+					"name": "AddSpecialty (PB-59)",
 					"event": [
 						{
 							"listen": "test",
@@ -1707,7 +1707,7 @@
 					"response": []
 				},
 				{
-					"name": "Update specialty by Id",
+					"name": "Update specialty by Id (PB-56)",
 					"event": [
 						{
 							"listen": "test",
@@ -1755,7 +1755,7 @@
 					"response": []
 				},
 				{
-					"name": "Get updated specialty by Id",
+					"name": "Get updated specialty by Id (PB-56)",
 					"event": [
 						{
 							"listen": "test",
@@ -1795,7 +1795,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete specialty by Id",
+					"name": "Delete specialty by Id (PB-56)",
 					"event": [
 						{
 							"listen": "test",
@@ -1804,6 +1804,7 @@
 									"pm.test(\"Status code is 204\", function () {\r",
 									"    pm.response.to.have.status(204);\r",
 									"});\r",
+									"\r",
 									""
 								],
 								"type": "text/javascript"

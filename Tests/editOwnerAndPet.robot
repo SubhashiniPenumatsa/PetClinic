@@ -39,7 +39,7 @@ End Web Test
 *** Test Cases ***
 User Can Edit Owners
     [Documentation]     User Can Edit the Owner Information
-    [Tags]              EditOwnerInformation
+    [Tags]              EditOwnerInformation (PB-19)
     Go to Web Page
     Click Button         xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/a
     Move Mouse Down      xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a/span[2]
@@ -58,7 +58,7 @@ User Can Edit Owners
 
 User Can Edit Pet_1
     [Documentation]     User Can Edit the Pet Information_byInputBirthday
-    [Tags]              EditPetInformation_1
+    [Tags]              EditPetInformation_1 (PB-19)
     Go to Web Page
     Click Button        xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/a
     Move Mouse Down     xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a/span[2]
@@ -75,7 +75,7 @@ User Can Edit Pet_1
 
 User Can Edit Pet_2
     [Documentation]     User Can Edit the Pet Information_bySelectBirthday
-    [Tags]              EditPetInformation_2
+    [Tags]              EditPetInformation_2 (PB-19)
     Go to Web Page
     Click Button        xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/a
     Move Mouse Down     xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a/span[2]
