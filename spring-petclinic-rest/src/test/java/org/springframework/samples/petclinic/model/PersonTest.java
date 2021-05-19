@@ -22,8 +22,7 @@ public class PersonTest {
     @Test
     public void testgetfirstNamenull() {
         Person P = new Person();
-        String expected = null;
-        Assertions.assertEquals(expected, P.getFirstName());
+        Assertions.assertEquals(null, P.getFirstName());
     }
     @Test
     public void testgetlastNamenull() {
