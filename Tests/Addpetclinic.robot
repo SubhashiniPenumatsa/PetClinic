@@ -59,7 +59,8 @@ User can add a pet to the specified owner
     Mouse Down                       xpath://html/body/app-root/app-pet-add/div/div/form/div[5]/div/div/select
     click element                    xpath://html/body/app-root/app-pet-add/div/div/form/div[5]/div/div/select/option[5]
     click button                     xpath://html/body/app-root/app-pet-add/div/div/form/div[6]/div/button[2]
-
+    sleep                            3
+    page should contain element      xpath://html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list[1]/table/tr/td[1]/dl  Name
 User can add another pet to the specified owner
     click button                     xpath://html/body/app-root/app-owner-detail/div/div/button[3]
     input text                       xpath://html/body/app-root/app-pet-add/div/div/form/div[3]/div/input       leo
@@ -67,8 +68,8 @@ User can add another pet to the specified owner
     Mouse Down                       xpath://html/body/app-root/app-pet-add/div/div/form/div[5]/div/div/select
     click element                    xpath://html/body/app-root/app-pet-add/div/div/form/div[5]/div/div/select/option[5]
     click button                     xpath://html/body/app-root/app-pet-add/div/div/form/div[6]/div/button[2]
-    wait until page contains         Owner Information
-
+    sleep                            2
+    page should contain element      xpath://html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list[2]/table/tr/td[1]/dl/dd[1]    leo
 End Web Test
   close all browsers
 
