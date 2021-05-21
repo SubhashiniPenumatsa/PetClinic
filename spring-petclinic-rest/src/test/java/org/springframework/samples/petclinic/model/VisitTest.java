@@ -26,6 +26,7 @@ public class VisitTest {
     {
         Pet P = new Pet();
         //Visit V = new Visit();
+        //Visit V = new Visit();
         //Pet expected ="cat";
 
         Assertions.assertEquals(expected, P.getBirthDate());
