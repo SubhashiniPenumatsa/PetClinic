@@ -1,7 +1,8 @@
 pipeline {
   agent any
   stages {
-     stage('para') {
+          
+        stage('para') {
            parallel {
 			stage('Build Api') {
 			  steps {
@@ -9,6 +10,23 @@ pipeline {
 					
 				  }
 				} 
+				stage ('Build') {
+              steps {
+                     sh 'cd spring-petclinic-rest && mvn compile'
+                }
+            }
+     
+     stage('Test') {
+                steps {
+                        sh 'cd spring-petclinic-rest && mvn test'
+                     }
+         post {
+		 
+			success{ gerritReview score:1}
+			failure{ gerritReview score:-1}
+           
+           }
+        }
 			 
 			stage('Build Angular') {
 				steps {
@@ -49,7 +67,7 @@ pipeline {
 			   
 				stage('newman') {
 						steps {
-						   sleep(30)
+						   sleep(20)
 							sh 'newman run  petclinic.postman_collection.json --environment petclinic.postman_environment.json --reporters junit'
 						}
 						post {
@@ -92,5 +110,6 @@ pipeline {
                        body: "${env.BUILD_URL} has result ${currentBuild.result}"
         }
     }
+	
  
 }
