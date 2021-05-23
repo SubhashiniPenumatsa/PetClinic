@@ -1,19 +1,8 @@
 package org.springframework.samples.petclinic.model;
 
-import org.hamcrest.collection.IsIterableContainingInOrder;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
-import java.util.Arrays;
-import java.util.List;
-
-import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.hasProperty;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertThat;
 
 
 public class VetTest {
