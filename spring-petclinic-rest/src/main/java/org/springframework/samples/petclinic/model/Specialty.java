@@ -27,4 +27,13 @@ import javax.persistence.Table;
 @Table(name = "specialties")
 public class Specialty extends NamedEntity {
 
+    private String Specialty;
+
+    public void setSpecialty(String Specialty) {
+        this.Specialty = Specialty;
+    }
+
+    public String getSpecialty() {
+        return Specialty;
+    }
 }
