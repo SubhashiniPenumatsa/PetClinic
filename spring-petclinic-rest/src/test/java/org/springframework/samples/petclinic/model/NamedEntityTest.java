@@ -7,9 +7,10 @@ public class NamedEntityTest {
     @Test
     public void testName() {
         NamedEntity name = new NamedEntity();
-        String expected = "Jonna";
-        name.setName("Jonna");
+        String expected = "Jonnas";
+        name.setName("Jonnas");
         Assertions.assertEquals(expected, name.getName());
-        Assertions.assertEquals("Jonna", name.toString());
+        Assertions.assertEquals(expected, name.toString());
     }
+
 }
