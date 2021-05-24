@@ -20,16 +20,6 @@ public class VetsTest {
             System.out.println(v.getVetList().size());
             Assertions.assertEquals(1,v.getVetList().size());
         }
-        @Test
-        public void testDate(){
-            Visit V = new Visit();
-            Visit V1 = new Visit();
-            Date D = new Date();
-            Date D1 = new Date();
-            V.setDate(D);
-            V1.setDate(D1);
-            Assertions.assertEquals(V.getDate(),V1.getDate());
 
-        }
 }
 
