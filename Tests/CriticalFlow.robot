@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation   Test Add/Edit/Remove PetTypes
+Documentation   Test Add/Owner/Pet/Visits
 Library         SeleniumLibrary
 Test Setup      Begin Web Test
 Test Teardown   End Web Test
@@ -13,6 +13,10 @@ ${Address}              abc123
 ${Telephone}            1234567
 ${PetFirstName}         Tyson
 ${Date}                 2021/01/01
+${Date1}                2021/10/06
+${VisitPage}            New Visit
+${OwnerInformationPage}  Pets and Visits
+${Description}          Dental checks
 *** Keywords ***
 Begin Web Test
     Open Browser                        about:black     ${BROWSER}
@@ -48,6 +52,24 @@ User adds a pet to the added owner
     wait until page contains element    xpath://html/body/app-root/app-owner-detail/div/div/table[2]
 Pet gets added
     page should contain         Name  ${PetFirstName}
+#GHERKIN TEST 3-----------------------------------------------------------------------------
+User is on the add visit page
+   User is on the add owner page
+    Click link                  ${Firstname} ${Lastname}
+    page should contain              ${OwnerInformationPage}
+    page should contain         Name  ${PetFirstName}
+    click button                xpath://html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list/table/tr/td[1]/dl/button[3]
+
+User adds a visit to the added pet
+   page should contain              ${VisitPage}
+   input text    xpath://*[@id="visit"]/div[1]/div[1]/div/input     ${Date1}
+   input text    xpath://*[@id="description"]      ${Description}
+   click button  xpath://*[@id="visit"]/div[2]/div/button[2]
+   sleep      3
+   Page should Contain Element    xpath://html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list/table/tr/td[2]/app-visit-list/table   ${Description}
+visit gets added
+   Page should Contain Element    xpath://html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list/table/tr/td[2]/app-visit-list/table   ${Description}
+
 End Web Test
     Close Browser
 
@@ -64,3 +86,9 @@ User add a pet to the added owner
     Given User is on the add pet page
     When User adds a pet to the added owner
     Then Pet gets added
+User add a visit to the added pet
+    [Documentation]         Add visit to added pet
+    [Tags]                  PB126
+    Given User is on the add visit page
+    When User adds a visit to the added pet
+    Then visit gets added
