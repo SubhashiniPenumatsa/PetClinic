@@ -19,4 +19,11 @@ public class BaseEntityTest {
         Integer expected = null;
         Assertions.assertEquals(expected, entity.getId());
     }
+    @Test
+    public void testIdnull() {
+        BaseEntity entity = new BaseEntity();
+        entity.setId(10);
+
+        Assertions.assertFalse( entity.isNew());
+    }
 }
