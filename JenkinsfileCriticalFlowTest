@@ -23,7 +23,7 @@ pipeline {
 					steps {
 					        catchError {
 							    sleep(20)
-							    sh 'robot --variable BROWSER:headlesschrome -d Tests/Results Tests/CriticalFlow.robot'
+							    sh 'robot --variable BROWSER:headlesschrome -d Tests/Results Criticaltest/CriticalFlow.robot'
 					        }
 
 						}
