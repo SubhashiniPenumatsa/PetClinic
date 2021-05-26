@@ -56,6 +56,7 @@ Pet gets added
 #GHERKIN TEST 3-----------------------------------------------------------------------------
 User is on the add visit page
    User is on the add owner page
+    sleep                       1
     Click link                  ${Firstname} ${Lastname}
     page should contain              ${OwnerInformationPage}
     page should contain         Name  ${PetFirstName}
