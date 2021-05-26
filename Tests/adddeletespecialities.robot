@@ -32,7 +32,7 @@ End Web Test
   close all browsers
 *** Test Cases ***
 User can add and delete specialties
-     set selenium speed  0.25
+     #set selenium speed  0.25
      [Documentation]  This test adds new specialties
      [Tags]           Adds new specialties
      User clicks the Specialties
