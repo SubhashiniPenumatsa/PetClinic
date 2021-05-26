@@ -26,6 +26,7 @@ Click On Owners Button
 Add Visit
 
          click element                  xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a  # Click first record  in the OWNERS info
+         sleep                          1
          click element                  xpath://html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[1]/td[1]/a
          click element                  xpath:/html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list/table/tr/td[1]/dl/button[3]
          Input text                     xpath://*[@id="visit"]/div[1]/div[1]/div/input     2021/05/04
@@ -37,6 +38,7 @@ Add Visit
 Edit Visit
 
          click element                  xpath://html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a  # Click first record  in the OWNERS info
+         sleep                          1
          click element                  xpath://html/body/app-root/app-owner-list/div/div/div/table/tbody/tr[1]/td[1]/a
 
          click element                  xpath://html/body/app-root/app-owner-detail/div/div/table[2]/tr/app-pet-list/table/tr/td[2]/app-visit-list/table/tr[1]/td[3]/button[1]
