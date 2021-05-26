@@ -41,8 +41,8 @@ Owner gets added
 #GHERKIN TEST 2------------------------------------------------------------------------------
 User is on the add pet page
     User is on the add owner page
-    Click link                  ${Firstname} ${Lastname}
     sleep                       1
+    Click link                  ${Firstname} ${Lastname}    
     click button                Add New Pet
 User adds a pet to the added owner
     input text                  id=name     ${PetFirstName}
